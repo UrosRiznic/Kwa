@@ -1,0 +1,48 @@
+<section  fxLayoutAlign="center center" fxLayout="column" class="sectionClass">
+  <mat-card>
+      <mat-card-header fxLayoutGap="100px" >
+          <div mat-card-avatar ><img mat-card-image src={{imgSRC}} class="resize-img"/></div>
+          <mat-card-title>{{userToShow.fname }} {{userToShow.lname }}</mat-card-title>
+          <mat-card-subtitle>Customer</mat-card-subtitle>
+       </mat-card-header>
+       <mat-card-content>
+          <button *ngIf="userIDtoShow == userService.getCurrenSession().id_user" mat-stroked-button color="primary"  (click)="editProfile()">Edit</button>
+          <mat-list >
+              <mat-divider></mat-divider>
+              <mat-list-item><mat-icon>star_rate</mat-icon>Raiting</mat-list-item>
+              <mat-list-item class="green-text">Positive {{repData?.rep_positive}}</mat-list-item>
+              <mat-list-item class="red-text">Negative {{repData?.rep_negative}}</mat-list-item>
+              <mat-divider></mat-divider>
+              
+              <mat-list-item><mat-icon>mail_outline</mat-icon>Email:</mat-list-item>
+              <p class="gray-text" fxLayoutGap="100px" fxLayoutAlign="center center">{{userToShow.contact_email}}</p>
+              <mat-divider></mat-divider>
+              <mat-list-item><mat-icon>phone</mat-icon>Phone: </mat-list-item>
+              <p class="gray-text" fxLayoutGap="100px" fxLayoutAlign="center center">{{userToShow.contact_phone}}</p>
+              <mat-divider></mat-divider>
+              <mat-list-item><mat-icon>home</mat-icon>Address: </mat-list-item>
+              <p class="gray-text" fxLayoutGap="100px" fxLayoutAlign="center center">{{userToShow.contact_address}}</p>
+            </mat-list>
+       </mat-card-content> 
+
+
+       <h4>REVIEWS</h4>
+       <div *ngIf="repData.rep_comment">
+       <div fxLayoutAlign="flex-start" fxLayoutAlign="flex-start"  role="list" *ngFor="let item of repData.rep_comment; index as i;">
+          <mat-card>
+              <mat-card-header fxLayoutGap="100px" >
+                  <a [routerLink]="['/profile']" [queryParams]="{userID: item.id_user_from}" (click)="reloadComponent(item.id_user_from)">
+                  {{userService.getProfileData(item.id_user_from).fname }} {{userService.getProfileData(item.id_user_from).lname }}
+                </a>
+                </mat-card-header>
+                <mat-card-content>
+                    {{item.comment}}
+                </mat-card-content>
+          </mat-card>
+       </div>
+    </div>
+      </mat-card>
+</section>
+
+
+

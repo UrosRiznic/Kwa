@@ -1,0 +1,71 @@
+<section class="section-css">
+    <div  fxLayout="row" fxLayoutAlign="center center">
+        <img src="/assets/registerImage.jpg"/>
+    </div>
+    <h1 fxLayout="row" fxLayoutGap="10px"  fxLayoutAlign="center center">REGISTRATION page</h1>
+
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px"
+    #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <!---------------------------------------------------------------------------------------------------------------------------------------->
+  
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+
+    <mat-form-field>
+        <input type="text" pattern="[A-Z]{1}[a-z]{2,20}" matInput placeholder="First name" ngModel name="firstName" required #firstNameInput="ngModel" > 
+        <mat-error *ngIf="firstNameInput.hasError('required')">Please write Your first name.</mat-error>
+        <mat-error *ngIf="!firstNameInput.hasError('required')">First lether should be capital letter followed by at least 2 words</mat-error>
+      </mat-form-field>
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+      <mat-form-field>
+        <input type="text" pattern="[A-Z]{1}[a-z]{2,20}" matInput placeholder="Last name" ngModel name="lastName" required #lastNameInput="ngModel">
+        <mat-error *ngIf="lastNameInput.hasError('required')">Please write Your last name.</mat-error>
+        <mat-error *ngIf="!lastNameInput.hasError('required')">First lether should be capital letter followed by at least 2 words</mat-error>
+      </mat-form-field>
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+      <mat-form-field>
+        <input type="tel" pattern="[0]{1}[0-9]{9}" matInput placeholder="Mobile phone number" ngModel name="phone" required #phoneInput="ngModel" minlength="6">
+        <mat-error *ngIf="phoneInput.hasError('required')">Please write Your mobile number.</mat-error>
+        <mat-error *ngIf="!phoneInput.hasError('required')">Phone number should start with 0 followed by 9 digits afterwards</mat-error>
+      </mat-form-field>
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+      <mat-form-field>
+        <input type="text" matInput placeholder="Address" ngModel name="address" required #adressInput="ngModel">
+        <mat-error *ngIf="adressInput.hasError('required')">Please write Your full address.</mat-error>
+      </mat-form-field>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- <font *ngIf="emailInUse" color="red">Email already in use. Please enter another email address!</font> -->
+    <mat-form-field hintLabel="This will be used for signing in.">
+        <input type="email" matInput placeholder="Your email" ngModel name="email" email required #emailInput="ngModel">
+        <mat-error *ngIf="emailInput.hasError('required')">Please write Your email address.</mat-error>
+        <mat-error *ngIf="!emailInput.hasError('required')">Please use the correct email format.</mat-error>
+      </mat-form-field>
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+      <mat-form-field appearance="standard" hintLabel="Please enter minimum 6 characters.">
+        <mat-label>Your password</mat-label>
+        <input type="password" matInput placeholder ngModel name="password" [(ngModel)]=password required minlength="6" #passInput="ngModel">
+        <mat-hint align="end">{{ passInput.value?.length }} /6 </mat-hint>
+        <mat-error *ngIf="passInput.hasError('required')">Please enter minimum 6 characters.</mat-error> 
+        <mat-error *ngIf="!passInput.hasError('required')">Please enter minimum 6 characters.</mat-error> 
+      </mat-form-field>
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-checkbox color="primary" ngModel name="acceptance" required></mat-checkbox>
+      <!-- I accept the <font face="verdana" color="blue" (click)="onTos()"><u>terms and conditions</u></font> of use. -->
+      I accept the <a href="javascript:;" (click)="onTos()">terms and conditions</a> of use.
+    </div>
+  
+  <div class="alert" *ngIf="errorString !=''">{{ errorString }}</div>
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+      <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">
+        Sign up!
+      </button>
+    </form>
+
+
+<p fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" class="pClass">
+    Already have an account?
+     <a routerLink="/" >
+      Consider to login here!
+     </a></p> 
+</section>

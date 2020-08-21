@@ -1,0 +1,47 @@
+mat-form-field {
+    width: 300px;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+section{
+    height:30%;
+    width:50%;
+	
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: static;
+    width: 33%;
+    height: 33%;
+    object-fit: fill;
+}
+
+.alert{
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+}
+.section-css{
+    margin-top: 50px;
+}
+.pClass{
+    margin-bottom: 100px;
+}

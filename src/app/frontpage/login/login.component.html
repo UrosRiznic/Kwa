@@ -1,0 +1,32 @@
+<section>
+  <div  fxLayout="row" fxLayoutAlign="center center">
+      <img src="/assets/loginbackground.jpg"/>
+  </div>
+  
+  <h1 fxLayout="row" fxLayoutGap="10px"  fxLayoutAlign="center center">LOGIN page</h1>
+  <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <mat-form-field>
+    <input type="email" matInput placeholder="Your email" ngModel name="email" email required #emailInput="ngModel">
+    <mat-error *ngIf="emailInput.hasError('required')">Field should not be left empty.</mat-error>
+    <mat-error *ngIf="!emailInput.hasError('required')">Please provide correct email format.</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="standard"  hintLabel="Please provide minimum 6 characters.">
+    <input [(ngModel)]=password type="password" matInput placeholder="Your password" ngModel name="password" required minlength="6" #pwdInput="ngModel">
+    <mat-label>Your password</mat-label>
+    <mat-hint align="end">{{ pwdInput.value?.length }} / 6</mat-hint>
+    <mat-error *ngIf="pwdInput.hasError('required')">Please enter minimum 6 characters.</mat-error> 
+        <mat-error *ngIf="!pwdInput.hasError('required')">Please enter minimum 6 characters.</mat-error> 
+  </mat-form-field> 
+  <div class="alert" *ngIf="errorString !=''">{{ errorString }}</div>
+  <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Login</button>
+  </form> 
+
+  
+  
+  <p fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+    Don't have an account
+     <a routerLink="/signup" >
+      Consider registering here!
+     </a></p> 
+  
+  </section>
