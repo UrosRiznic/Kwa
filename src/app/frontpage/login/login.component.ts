@@ -28,7 +28,7 @@ onSubmit (form : NgForm) {
         let reddirect_path = "/";
         if(this.userService.getCurrenSession().acc_type == "driver"){
          reddirect_path = "/view-current-rides";
-        } else { reddirect_path = "/search-active-rides"; }
+        } else { reddirect_path = "/events"; }
        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
        this.router.navigate([reddirect_path]));
       }

@@ -19,7 +19,7 @@ export class UsersService {
             id_user         : 1,
             fname           : "Jeremiah",
             lname           : "Riley",
-            contact_email   : "jeremiah@example.com",
+            contact_email   : "test@test",
             contact_phone   : "0123456789",
             contact_address : "2014 Public Works Drive Chattanooga, TN 37421",
             password        : "secret",

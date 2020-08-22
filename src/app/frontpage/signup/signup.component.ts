@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../../app.component';
 import { UsersService } from '../../services/users.service';
-import { ReputationService } from '../../services/reputation.service';
 import { Router } from "@angular/router";
 
 @Component({
@@ -13,7 +12,7 @@ import { Router } from "@angular/router";
 export class SignupComponent implements OnInit {
   errorString : string = "";
 
-  constructor(private router : Router,private userService : UsersService, private appComponent : AppComponent, private repService : ReputationService) { }
+  constructor(private router : Router,private userService : UsersService, private appComponent : AppComponent) { }
 
   ngOnInit() {
   }
@@ -32,7 +31,6 @@ export class SignupComponent implements OnInit {
       this.errorString = "";
       this.appComponent.setLoggedIn(true);
       this.userService.validateLogin(form.value.email,form.value.password );
-      this.repService.initReputation(newID);
 
       //___________________________________________ reddirect
       if( this.userService.getCurrenSession().id_user != -1){

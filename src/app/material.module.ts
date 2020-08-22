@@ -23,7 +23,10 @@ import { MatButtonModule,
          MatDividerModule,
          MatDialogModule,
          MatSnackBarModule,
-         MatSlideToggleModule
+         MatSlideToggleModule,
+         MatExpansionModule,
+         MatStepperModule,
+         MatBadgeModule
          
         } from '@angular/material';
 
@@ -50,7 +53,10 @@ const matModules = [
         MatDividerModule,
         MatDialogModule,
         MatSnackBarModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatExpansionModule,
+        MatStepperModule,
+        MatBadgeModule
         ]
 
 @NgModule ({

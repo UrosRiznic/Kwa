@@ -1,0 +1,99 @@
+<mat-dialog-content>
+  <section fxLayout="column" fxLayoutAlign="center center">
+    <mat-vertical-stepper [linear]=true #stepper>
+      <mat-step [stepControl]="eventFormGroup">
+        <form [formGroup]="eventFormGroup" (ngSubmit)="form6()" #formsix="ngForm">
+          <ng-template matStepLabel>Insert event name</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Event name" formControlName="eventNameFF" [(ngModel)]=event required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="firstFormGroup" (ngSubmit)="form1()" #formone="ngForm">
+          <ng-template matStepLabel>Location of event</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Location" formControlName="eventLocationFF" [(ngModel)]=loc required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup" (ngSubmit)="form2()" #formtwo="ngForm" fxLayoutAlign="center start"
+          fxLayout="column">
+          <ng-template matStepLabel>Beginning event time</ng-template>
+          <mat-form-field>
+            <input matInput [matDatepicker]="dateFromPicker" placeholder="Beginning event time" formControlName="dateFromFF"
+              [(ngModel)]=dateF required disabled>
+            <mat-datepicker-toggle matSuffix [for]="dateFromPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dateFromPicker disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <ng-template matStepLabel>Finish event time</ng-template>
+          <mat-form-field>
+            <input matInput [matDatepicker]="dateToPicker" placeholder="Finish event time" formControlName="dateToFF"
+              [(ngModel)]=dateT required disabled>
+            <mat-datepicker-toggle matSuffix [for]="dateToPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dateToPicker disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup" (ngSubmit)="form3()" #formthree="ngForm">
+          <ng-template matStepLabel>Type</ng-template>
+          <mat-form-field>
+            <mat-select matInput placeholder="Type" formControlName="typeFF" [(ngModel)]=eventType required>
+              <mat-option value="HOTEL">Hotel</mat-option>
+              <mat-option value="SPA">Spa</mat-option>
+              <mat-option value="VILLAGE">Village</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="fourthFormGroup">
+        <form [formGroup]="fourthFormGroup" (ngSubmit)="form4()" #formfour="ngForm" fxLayoutAlign="center start"
+          fxLayout="column">
+          <ng-template matStepLabel>Description of event</ng-template>
+          <mat-form-field>
+            <textarea matInput placeholder formControlName="descriptionFF" [(ngModel)]=desc required cdkTextareaAutosize
+              #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5"></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <form [formGroup]="fifthFormGroup" (ngSubmit)="form5()" #formone="ngForm">
+          <ng-template matStepLabel>Attendace of event</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Attendace" formControlName="attendanceFF" [(ngModel)]=attend required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+          </div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+  </section>
+
+  <mat-card-actions fxLayoutAlign="center" fxLayoutGap="10px">
+    <button type="submit" mat-stroked-button color="primary" (click)="onClick()">Cancel</button>
+    <button type="submit" mat-raised-button color="primary" (click)="final()">Submit</button>
+  </mat-card-actions>
+</mat-dialog-content>
