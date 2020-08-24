@@ -1,8 +1,12 @@
 import { UsersModel } from './models/user.model';
 import { Injectable } from "@angular/core";
+import { EventsService } from './events.service';
 
 @Injectable()
 export class UsersService {
+
+   // constructor(private eventsService: EventsService) { }
+
     private current_session : UsersModel = {             // empty because at first USER is not Logged IN! 
         id_user         : -1,       // later we are going to use this to put current logged in user
         fname           : "",       // to simulate the SESSION on the backend
@@ -11,6 +15,7 @@ export class UsersService {
         contact_phone   : "",
         contact_address : "",
         password        : "",
+        interest        : "",
         events          : []
     }
     /// setting userList---------------------------------------------------------------------------------
@@ -23,6 +28,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "2014 Public Works Drive Chattanooga, TN 37421",
             password        : "secret",
+            interest        : "",
             events          : [1,2,3]
         } , 
         {
@@ -33,6 +39,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "3246 Boring Lane Inverness, CA 94937",
             password        : "secret",
+            interest        : "",
             events          : [1]
         } , 
         {
@@ -43,6 +50,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "3762 Briarwood Drive Camden, NJ 08102",
             password        : "secret",
+            interest        : "",
             events          : [3]
         } , 
         {
@@ -53,6 +61,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "60 Pheasant Ridge Road Philadelphia, PA 19103",
             password        : "secret",
+            interest        : "Relaxation",
             events          : []
         } , 
         {
@@ -63,6 +72,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "Serenade Opus 108 9700 Volkegem",
             password        : "secret",
+            interest        : "Relaxation",
             events          : [1,2,3]
         } , 
     ]
@@ -95,7 +105,7 @@ export class UsersService {
         in_contact_phone:string,
         in_contact_address:string,
         in_password:string,
-        in_acc_type:string,){            
+        in_interest:string,){            
             const newID =  this.userList[this.userList.length - 1].id_user + 1;
             this.userList.push({
                 id_user         : newID,
@@ -105,6 +115,7 @@ export class UsersService {
                 contact_phone   : in_contact_phone,
                 contact_address : in_contact_address,
                 password        : in_password,
+                interest        : in_interest,
                 events           : []
             }); // end push;
             return newID;
@@ -135,6 +146,11 @@ export class UsersService {
                     this.userList[i] = in_model;
                 }
         }
+    }
+
+    public interestedEvents() {
+        if (this.current_session.events != undefined)
+            return this.current_session.events.length;
     }
 
 }

@@ -36,7 +36,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   interestedEvents() {
-    var value = 1;//;this.eventsService.getInterestingEvents().length;
+    var value = this.eventsService.getInterestingEvents().length;
     if (value > 0) {
       return value;
     } else {
@@ -45,7 +45,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   appliedEvents() {
-    var value = 1;//this.usersService.appliedEvents().length;
+    var value = this.eventsService.appliedEvents().length;
     if (value > 0) {
       return value;
     } else {
@@ -54,7 +54,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   finishedEvents() {
-    var value = 1;//this.eventService.getFinishedEvents().length;
+    var value = this.eventsService.getFinishedEvents().length;
     if (value > 0) {
       return value;
     } else {

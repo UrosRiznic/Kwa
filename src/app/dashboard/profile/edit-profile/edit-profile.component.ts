@@ -21,6 +21,7 @@ export class EditProfileComponent implements OnInit {
       contact_email   : "",
       contact_phone   :"",
       contact_address :"",
+      interest        :"",
       password        :""
      
     };

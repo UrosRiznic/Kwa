@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { EventsModel } from '../../../services/models/event.model';
-import { UsersService } from '../../../services/users.service';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { Router } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
+import { EventsService } from 'src/app/services/events.service';
 
 @Component({
   selector: 'app-applied',
@@ -21,14 +21,14 @@ import { AppComponent } from 'src/app/app.component';
 
 export class AppliedComponent implements OnInit, AfterViewInit {
 
-  displayedColumns = ["name", "dateFrom", "dateTo", "location", "rating", "eventType"];
+  displayedColumns = ["name", "date_from", "date_to", "location", "rating", "event_type"];
   appliedEventSource = new MatTableDataSource<EventsModel>();
   expandedElement: EventsModel | null;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private usersService: UsersService, private router: Router, private AppComponent: AppComponent) { }
+  constructor(private eventsService: EventsService, private router: Router, private AppComponent: AppComponent) { }
 
   ngOnInit() {
     if (this.AppComponent.loggedIn == false) {
@@ -43,6 +43,6 @@ export class AppliedComponent implements OnInit, AfterViewInit {
   }
 
   appliedEvents() {
-    return null;//this.usersService.appliedEvents();
+    return this.eventsService.appliedEvents();
   }
 }

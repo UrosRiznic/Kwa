@@ -38,7 +38,7 @@ export class RateComponent implements OnInit {
       } else {
         finalEvent.rating = (this.rating + finalEvent.rating) / 2;
       }
-      //this.eventsService.updateEvent(finalEvent);
+      this.eventsService.updateEvent(finalEvent);
       this.close();
     }
   }

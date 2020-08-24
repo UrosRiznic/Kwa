@@ -19,14 +19,14 @@ export class SignupComponent implements OnInit {
 
   onSubmit(form : NgForm) {
     if(!this.userService.doesEmailExists(form.value.email)){
-      let newID = this.userService.addUser(
+      this.userService.addUser(
         form.value.firstName,
         form.value.lastName,
           form.value.email,
           form.value.phone,
           form.value.address,
           form.value.password,
-          form.value.typeOfUser
+          form.value.interest
         );
       this.errorString = "";
       this.appComponent.setLoggedIn(true);
@@ -35,9 +35,7 @@ export class SignupComponent implements OnInit {
       //___________________________________________ reddirect
       if( this.userService.getCurrenSession().id_user != -1){
         let reddirect_path = "/";
-        /*if(this.userService.getCurrenSession().acc_type == "driver"){
-         reddirect_path = "/view-current-rides";
-        } else { */reddirect_path = "/events"; //}
+        reddirect_path = "/events";
        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
        this.router.navigate([reddirect_path]));
       }

@@ -3,6 +3,7 @@ import { EventsModel } from '../../../services/models/event.model';
 import { EventsService } from '../../../services/events.service';
 import { UsersService } from '../../../services/users.service';
 import { MatDialog } from '@angular/material';
+import { JoinEventComponent } from '../../events/join-event/join-event.component';
 
 @Component({
   selector: 'app-interested',
@@ -16,16 +17,15 @@ export class InterestedComponent implements OnInit {
   interestedEvents: Array<EventsModel>;
 
   ngOnInit() {
-    this.interestedEvents = [];//this.eventsService.getInterestingEvents();
+    this.interestedEvents = this.eventsService.getInterestingEvents();
   }
 
   getInterestingEvents() {
-    return [];//this.evenstService.getInterestingEvents();
+    return this.eventsService.getInterestingEvents();
   }
 
   joinEvent(id: number) {
-    let event: EventsModel = this.eventsService.getEvent(id);
-    //this.usersService.getActiveUser().events.push(event);
-    //const dialogRef = this.dialog.open(JoinEventComponent);
+    this.usersService.getCurrenSession().events.push(id);
+    const dialogRef = this.dialog.open(JoinEventComponent);
   }
 }

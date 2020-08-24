@@ -16,7 +16,6 @@ import { SignupComponent } from './frontpage/signup/signup.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 
 import { UsersService } from './services/users.service';
-import { NotificationsService } from './services/notification.service';
 import { EditProfileComponent } from './dashboard/profile/edit-profile/edit-profile.component';
 import { EventsService } from './services/events.service';
 import { NotificationsComponent } from './frontpage/notifications/notifications.component';
@@ -48,21 +47,21 @@ import { RateComponent } from './frontpage/notifications/rate/rate.component';
     RateComponent
   ],
   imports: [
-    BrowserModule, 
-    MaterialModule, 
+    BrowserModule,
+    MaterialModule,
     RoutingModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UsersService, EventsService, NotificationsService],
+  providers: [UsersService, EventsService],
   bootstrap: [AppComponent],
-  entryComponents : [
+  entryComponents: [
     EditProfileComponent,
     JoinEventComponent
-  ] 
+  ]
 })
 
 
-export class AppModule {}
+export class AppModule { }

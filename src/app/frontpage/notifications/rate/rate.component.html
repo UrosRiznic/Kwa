@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center center">
   <form [formGroup]="rateFormGroup" #formthree="ngForm">
     <mat-form-field>
-      <mat-label>Оцена догађаја</mat-label>
+      <mat-label>Rate event</mat-label>
       <mat-select matInput placeholder="Оцена" formControlName="rateFF" [(ngModel)]=rating required>
         <mat-option value=1>1</mat-option>
         <mat-option value=2>2</mat-option>
@@ -12,7 +12,7 @@
     </mat-form-field>
   </form>
   <mat-dialog-actions>
-    <button mat-stroked-button color="primary" (click)="close()">Одустани</button>
-    <button type="submit" mat-raised-button color="primary" (click)="final()">Пошаљи</button>
+    <button mat-stroked-button color="primary" (click)="close()">Cancel</button>
+    <button type="submit" mat-raised-button color="primary" (click)="final()">Rate</button>
   </mat-dialog-actions>
 </div>

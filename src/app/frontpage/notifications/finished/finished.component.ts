@@ -39,7 +39,7 @@ export class FinishedComponent implements OnInit, AfterViewInit {
   }
 
   applied(id: number) {
-    return null;//this.usersService.getActiveUser().events.some(event => event.id == id)
+    return this.usersService.getCurrenSession().events.some(eventId => eventId == id)
   }
 
 }

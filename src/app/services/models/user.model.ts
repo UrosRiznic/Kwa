@@ -6,5 +6,6 @@ export interface UsersModel {
     contact_phone   : string;
     contact_address : string;
     password        : string;
+    interest        : string;
     events          : Array<number>;
 } 
