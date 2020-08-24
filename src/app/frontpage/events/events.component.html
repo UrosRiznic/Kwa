@@ -8,31 +8,31 @@
     <section fxLayout="row" fxLayoutAlign="space-evenly center">
       <form [formGroup]="firstFormGroup">
         <mat-form-field>
-          <input matInput placeholder="Име догађаја" formControlName="firstCtrl"
+          <input matInput placeholder="Event name" formControlName="firstCtrl"
             (keyup)="doFilter($event.target.value, 'name')">
         </mat-form-field>
       </form>
       <form [formGroup]="secondFormGroup">
         <mat-form-field>
-          <input matInput placeholder="Локација" formControlName="secondCtrl"
+          <input matInput placeholder="Location" formControlName="secondCtrl"
             (keyup)="doFilter($event.target.value, 'location')">
         </mat-form-field>
       </form>
       <form [formGroup]="thirdFormGroup">
         <mat-form-field>
-          <input matInput placeholder="Посећеност догађаја" formControlName="thirdCtrl"
+          <input matInput placeholder="Attendance of event" formControlName="thirdCtrl"
             (keyup)="doFilter($event.target.value, 'attendance')">
         </mat-form-field>
       </form>
       <form [formGroup]="fourthFormGroup">
         <mat-form-field>
-          <input matInput placeholder="Оцена догађаја" formControlName="fourthCtrl"
+          <input matInput placeholder="Rating" formControlName="fourthCtrl"
             (keyup)="doFilter($event.target.value, 'rating')">
         </mat-form-field>
       </form>
       <form [formGroup]="fifthFormGroup">
         <mat-form-field>
-          <input matInput placeholder="Тип" formControlName="fifthCtrl" (keyup)="doFilter($event.target.value, 'type')">
+          <input matInput placeholder="Event type" formControlName="fifthCtrl" (keyup)="doFilter($event.target.value, 'type')">
         </mat-form-field>
       </form>
     </section>

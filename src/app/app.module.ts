@@ -59,7 +59,8 @@ import { RateComponent } from './frontpage/notifications/rate/rate.component';
   providers: [UsersService, EventsService, NotificationsService],
   bootstrap: [AppComponent],
   entryComponents : [
-    EditProfileComponent
+    EditProfileComponent,
+    JoinEventComponent
   ] 
 })
 

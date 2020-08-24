@@ -11,7 +11,7 @@ export class UsersService {
         contact_phone   : "",
         contact_address : "",
         password        : "",
-        acc_type        : 'passenger'
+        events          : []
     }
     /// setting userList---------------------------------------------------------------------------------
     private userList : Array<UsersModel> = [
@@ -23,7 +23,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "2014 Public Works Drive Chattanooga, TN 37421",
             password        : "secret",
-            acc_type        : 'passenger'
+            events          : [1,2,3]
         } , 
         {
             id_user         : 2,
@@ -33,7 +33,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "3246 Boring Lane Inverness, CA 94937",
             password        : "secret",
-            acc_type        : 'driver'
+            events          : [1]
         } , 
         {
             id_user         : 3,
@@ -43,7 +43,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "3762 Briarwood Drive Camden, NJ 08102",
             password        : "secret",
-            acc_type        : 'passenger'
+            events          : [3]
         } , 
         {
             id_user         : 4,
@@ -53,7 +53,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "60 Pheasant Ridge Road Philadelphia, PA 19103",
             password        : "secret",
-            acc_type        : 'driver'
+            events          : []
         } , 
         {
             id_user         : 5,
@@ -63,7 +63,7 @@ export class UsersService {
             contact_phone   : "0123456789",
             contact_address : "Serenade Opus 108 9700 Volkegem",
             password        : "secret",
-            acc_type        : 'passenger'
+            events          : [1,2,3]
         } , 
     ]
     /// end userList---------------------------------------------------------------------------------
@@ -105,7 +105,7 @@ export class UsersService {
                 contact_phone   : in_contact_phone,
                 contact_address : in_contact_address,
                 password        : in_password,
-                acc_type        : in_acc_type == 'driver'? 'driver' : 'passenger'
+                events           : []
             }); // end push;
             return newID;
         } //end setUser;

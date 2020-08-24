@@ -86,9 +86,8 @@ export class EventsComponent implements OnInit, AfterViewInit {
   }
 
   joinEvent(id: number) {
-    let event: EventsModel = this.eventsService.getEvent(id);
-    //this.usersService.getActiveUser().events.push(event);
-    //this.usersService.updateUser(this.usersService.getActiveUser());
+    this.usersService.getCurrenSession().events.push(id);
+    this.usersService.updateUser(this.usersService.getCurrenSession());
     this.AppComponent.hiddenInterested = false;
     this.AppComponent.interestedEvents(1);
     const dialogRef = this.dialog.open(JoinEventComponent);

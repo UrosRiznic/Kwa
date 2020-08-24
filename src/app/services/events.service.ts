@@ -1,22 +1,109 @@
 import { Injectable } from "@angular/core";
 import { EventsModel } from './models/event.model';
+import { UsersService } from "./users.service";
 
 @Injectable()
 export class EventsService {
 
+    constructor(private usersService: UsersService) { }
 
     private events : Array<EventsModel> = [
         {
             id: 1,
             name: "Hotel Kopaonik",
-            date_from: new Date("29.8.2020"),
-            date_to: new Date("31.8.2020"),
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
             event_type: 'Relaxation',
             rating: 4.4,
             location: "Kopaonik",
             description: "Letnje uzivanje na planini",
-            attendance: 45
+            attendance: 45,
+            
         } ,
+        {
+            id: 2,
+            name: "Hotel Avala",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Belgrade",
+            description: "Close to the capital",
+            attendance: 45,
+            
+        } ,
+        {
+            id: 3,
+            name: "Hotel Novi Sad",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Novi Sad",
+            description: "The beauty of Vojvodina",
+            attendance: 45,
+            
+        } ,
+        {
+            id: 4,
+            name: "Hotel Motel",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Nis",
+            description: "South Serbia experience",
+            attendance: 45,
+            
+        } ,
+        {
+            id: 5,
+            name: "Hotel Kopaonik",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Kopaonik",
+            description: "Letnje uzivanje na planini",
+            attendance: 45,
+            
+        } ,
+        {
+            id: 6,
+            name: "SPA Vrnjacka Banja",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Vrnjacka Banja",
+            description: "SPA relax",
+            attendance: 45,
+            
+        } ,
+        {
+            id: 7,
+            name: "Open Cinema",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Belgrade",
+            description: "Open Cinema live outdoors",
+            attendance: 100,
+            
+        } ,
+        {
+            id: 8,
+            name: "Hotel Zlatibor",
+            date_from: new Date(2020, 8, 17),
+            date_to: new Date(2020, 8, 27),
+            event_type: 'Relaxation',
+            rating: 4.4,
+            location: "Zlatibor",
+            description: "Summer holidays",
+            attendance: 50,
+            
+        }
     ]
 
 
@@ -63,10 +150,10 @@ export class EventsService {
     }
 
     public getNewEvents(): Array<EventsModel> {
-       /* if (this.userService.getActiveUser().events != undefined && this.userService.getActiveUser().events != null) {
-            const result = this.events.filter(event => !this.userService.getActiveUser().events.some(userEvent => event.id == userEvent.id));
+        if (this.usersService.getCurrenSession().events != undefined && this.usersService.getCurrenSession().events != null) {
+            const result = this.events.filter(event => !this.usersService.getCurrenSession().events.some(userEventId => event.id == userEventId));
             return result.filter(event => !this.getFinishedEvents().some(finishedEvent => event.id == finishedEvent.id));
-        }*/
+        }
         return new Array<EventsModel>();
     }
 

@@ -6,5 +6,5 @@ export interface UsersModel {
     contact_phone   : string;
     contact_address : string;
     password        : string;
-    acc_type        : 'passenger' | 'driver';
+    events          : Array<number>;
 } 
